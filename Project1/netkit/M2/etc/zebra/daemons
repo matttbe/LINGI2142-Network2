@@ -1,8 +1,8 @@
 # daemons file
 zebra=yes
-bgpd=yes
+bgpd=no
 ripd=no
-ospf6d=no
-ospfd=yes
+ospf6d=yes
+ospfd=no
 ripngd=no
 isisd=no
