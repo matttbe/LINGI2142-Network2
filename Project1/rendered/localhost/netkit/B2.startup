@@ -1,6 +1,6 @@
 /sbin/ifconfig lo:1 10.0.0.6 netmask 255.255.255.255 broadcast 10.0.0.6 up
-/sbin/ifconfig eth0 10.0.128.5 netmask 255.255.255.252 broadcast 10.0.128.7 up
-/sbin/ifconfig eth1 10.0.128.9 netmask 255.255.255.252 broadcast 10.0.128.11 up
+/sbin/ifconfig eth0 10.0.0.5 netmask 255.255.255.252 broadcast 10.0.0.7 up
+/sbin/ifconfig eth1 10.0.0.9 netmask 255.255.255.252 broadcast 10.0.0.11 up
 route del default
 /sbin/ifconfig lo 127.0.0.1 up
 /etc/init.d/ssh start
