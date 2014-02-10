@@ -2,7 +2,7 @@
 zebra=yes
 bgpd=yes
 ripd=no
-ospf6d=no
+ospf6d=yes
 ospfd=no
 ripngd=no
 isisd=no
