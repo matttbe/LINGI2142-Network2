@@ -1,3 +1,4 @@
+ifconfig lo:1 add 2001:738::10/48
 ifconfig eth0 up
 ifconfig eth0 add 2001:db8:a1a2::2/48
 
