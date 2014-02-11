@@ -1,8 +1,0 @@
-# daemons file
-zebra=yes
-bgpd=no
-ripd=no
-ospf6d=yes
-ospfd=no
-ripngd=no
-isisd=no
