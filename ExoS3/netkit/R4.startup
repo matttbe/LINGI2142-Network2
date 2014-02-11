@@ -1,0 +1,4 @@
+ifconfig eth0 up
+ifconfig eth0 add 2001:db8:c4d2::2/48
+
+/etc/init.d/zebra start
