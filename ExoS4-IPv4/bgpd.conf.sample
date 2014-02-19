@@ -1,0 +1,9 @@
+!
+hostname bgpd
+password zebra
+
+log file /var/log/zebra/bgpd.log
+
+router bgp 
+    bgp router-id
+

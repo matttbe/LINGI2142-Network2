@@ -1,0 +1,12 @@
+ifconfig eth0 up
+#ifconfig eth0 add 2001:db8:b4c4::c4/48
+ifconfig eth0 10.0.8.8 netmask 255.255.255.0
+
+ifconfig eth1 up
+#ifconfig eth1 add 2001:db8:c4d3::c4/48
+ifconfig eth1 10.0.13.8 netmask 255.255.255.0
+
+#sysctl -w net.ipv6.conf.all.forwarding=1
+sysctl -w net.ip.conf.all.forwarding=1
+/etc/init.d/zebra start
+

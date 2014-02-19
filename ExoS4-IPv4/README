@@ -1,0 +1,87 @@
+regarding Quagga : RTFM 
+http://www.nongnu.org/quagga/docs/docs-info.html
+
+LABCONF
+
+in the lab.conf file, subnet are labelled and defined in an alphabetical order :
+Valid labels :
+		B1B2
+		B3T1
+		B4M2 
+
+Wrong labels :
+		B3B2
+		T1B2
+		M2B1
+STARTUP
+
+
+Each IPv4 address of this "AS" is configured as follow : 
+10.0.X.Y 
+
+where X = ID of the subnet to which the interface is connected
+      Y = ID of the router where
+		1 is B1, 2 is B2, ... 5 is M1, 6 is M2, ... 9 is T1, 10 is T2, ...
+
+
+this gave us an "alphabet" of all the subnets. And the first one in this
+"alphabet" is B1M1 which ID is 1; then comes B1M3 (id = 2) and so on...
+
+in the future, if we need to add routers and then subnets, we'll just add them with the 
+next available ID (new subnet "B5-M2" ID -> 16), same for router ID (new router B5 : ID -> 12)
+
+DAEMONS / quagga 
+
+edit the file and put "yes" if the daemon needs to be executed, otherwise "no" is fine.
+
+As of TD2, we need Zebra, Ospf and bgp. Thus, these three must be on "yes"
+
+zebra / quagga
+
+nothing is really configured in this file (only the location of the log file)
+
+ospf / quagga
+
+hostname and password attributes are here to connect via telnet : 
+
+telnet localhost ospfd and when asked, type the "zebra" passwd
+
+each interface can be configured here as follow 
+
+inteface ethX
+if ospf cost COST_WE_WANT
+
+more options can be configured but aren't asked.
+
+we then need to configure the router himself
+
+router ospf
+ network <ip_range> area <area> 
+ if the interface is in the <ip_range> then, OSPF is enable on this interface
+ (areas give possibility to have several "ospf" sub-network)
+ 
+ redistribute connected
+ (still don't know what it does :D)
+ 
+ 
+bgp / quagga
+
+hostname and password attributes are here to connect via telnet :
+
+telnet localhost bgpd and when asked, type the "zebra" passwd
+
+router bgp <AS ID>
+  bgp router-id <router-IP-address>
+  bgp cluster-id <router-IP-address> (route reflector)
+  neighbor <peer-IP-address> remote-as <AS ID of peer> (define a peer must be set 
+  before a route-reflector client attribute)
+  neighbor <peer-ID-address> route-reflector-client (add the peer to the list of the client
+  to reflect routes)
+  neighbor <peer-ID-address> prefix-list <prefix-list ID> in/out (apply prefix
+  list to the neighbor)
+
+  ip prefix-list <prefix-list ID> permit/deny <range> (set rule to the list)
+
+  
+  network <IP-range> (announces prefix)
+  
