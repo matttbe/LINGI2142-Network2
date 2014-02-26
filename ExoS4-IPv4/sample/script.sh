@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MYDIR="/home/melchizedech/netkit/labs/lingi2142"
+MYDIR="/etinfo/users/2011/matbourgeois/Bureau/NETWORK2/LINGI2142-Network2/ExoS4-IPv4"
 
 cd $MYDIR
 
@@ -12,7 +12,7 @@ do
 echo $DIR ...
 
 cd $DIR
-cp /home/melchizedech/netkit/labs/lingi2142/hosts.sample etc/hosts
+cp /etinfo/users/2011/matbourgeois/Bureau/NETWORK2/LINGI2142-Network2/ExoS4-IPv4/hosts.sample etc/hosts
 
 cd ..
 echo next...
