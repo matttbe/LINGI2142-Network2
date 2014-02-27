@@ -1,3 +1,5 @@
+ifconfig lo:1 192.168.1.1 netmask 255.255.255.0 up
+
 ifconfig eth0 up
 ifconfig eth0 20.0.16.12 netmask 255.255.255.0
 

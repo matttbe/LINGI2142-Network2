@@ -1,3 +1,5 @@
+ifconfig lo:1 192.168.1.1 netmask 255.255.255.0 up
+
 ifconfig eth0 up
 #ifconfig eth0 add 2001:db8:c1d1::d1/48
 ifconfig eth0 10.0.9.9 netmask 255.255.255.0
