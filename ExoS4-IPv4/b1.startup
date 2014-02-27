@@ -11,6 +11,9 @@ ifconfig eth1 10.0.2.1 netmask 255.255.255.0
 ifconfig eth2 up
 ifconfig eth2 20.0.16.1 netmask 255.255.255.0
 
+ifconfig eth3 up
+ifconfig eth3 24.0.0.11 netmask 255.255.255.0
+
 #sysctl -w net.ipv6.conf.all.forwarding=1
 sysctl -w net.ip.conf.all.forwarding=1
 
