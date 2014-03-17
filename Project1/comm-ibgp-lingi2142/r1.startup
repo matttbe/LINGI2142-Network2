@@ -1,0 +1,17 @@
+ifconfig eth0 up
+ifconfig eth0 20.0.16.12 netmask 255.255.255.0
+
+ifconfig eth1 up
+ifconfig eth1 20.0.17.12 netmask 255.255.255.0
+
+ifconfig eth2 up
+ifconfig eth2 20.0.18.12 netmask 255.255.255.0
+
+ifconfig eth3 up
+ifconfig eth3 20.0.19.12 netmask 255.255.255.0
+
+ifconfig eth4 up
+ifconfig eth4 20.0.20.12 netmask 255.255.255.0
+
+sysctl -w net.ip.conf.all.forwarding=1
+/etc/init.d/zebra start

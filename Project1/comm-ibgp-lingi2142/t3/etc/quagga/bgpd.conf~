@@ -1,0 +1,23 @@
+!
+hostname bgpd
+password zebra
+
+log file /var/log/zebra/bgpd.log
+
+router bgp 10000
+    bgp cluster-id 10.0.13.11
+    bgp router-id 10.0.13.11
+    
+    neighbor 10.0.15.10 remote-as 10000
+    no neighbor 10.0.15.10 route-reflector-client
+    neighbor 10.0.9.9 remote-as 10000
+    no neighbor 10.0.9.9 route-reflector-client
+    
+    ! TROUBLES 
+    neighbor 10.0.22.4 remote-as 10000
+    no neighbor 10.0.22.4 route-reflector-client
+        
+    neighbor 10.0.8.8 remote-as 10000
+    neighbor 10.0.8.8 route-reflector-client
+    
+    
