@@ -26,6 +26,11 @@ sshcmd() {
 	sshpass -p 'root' ssh root@$dest "$@"
 }
 
+ls ../part1
+read -p "Which router?" RouterDir
+sshpass -p "root" scp -r ../part1/$RouterDir/* root@$dest:/
+
+
 sshcmd "sed -i '/^exit 0/ s/exit 0/\n\/etc\/init.d\/quagga start\n\nexit 0/g' /etc/rc.local"
 
 echo "Install done - Restart the router"
