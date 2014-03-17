@@ -17,7 +17,16 @@ commands="opkg install *.ipk;iptables -F;iptables -X;iptables -P INPUT ACCEPT;ip
 set -- "$commands"
 IFS=";"; declare -a Array=($*)
 for item in ${Array[*]}; do
-	echo "sshpass -p root ssh root@$dest $item"
+	echo "ssh root@$dest $item"
 	sshpass -p "root" ssh root@$dest "$item"
 done
 
+sshcmd() {
+	echo "$@"
+	sshpass -p 'root' ssh root@$dest "$@"
+}
+
+sshcmd "sed -i '/^exit 0/ s/exit 0/\n\/etc\/init.d\/quagga start\n\nexit 0/g' /etc/rc.local"
+
+echo "Install done - Restart the router"
+sshcmd "halt"
