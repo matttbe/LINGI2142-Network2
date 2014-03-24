@@ -9,6 +9,6 @@ ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
 ff02::5 ip6-allspfrouters
 
-2001:db8:beef::1 beef
-2001:db8:cafe::1 cafe
-2001:db8:dead::1 dead
+2001:bb8:beef::1 beef
+2001:bb8:cafe::1 cafe
+2001:bb8:dead::1 dead
