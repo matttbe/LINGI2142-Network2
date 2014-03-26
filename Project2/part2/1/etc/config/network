@@ -7,23 +7,23 @@ config interface 'loopback'
 config interface 'eth0'
 	option ifname 'eth0'
 	option proto 'static'
-	option ip6addr '2001:bb8:1234:1101::1'
-	option ip6prefix 2001:bb8:1234::/48
-	option ip6assign '48'
+	option ip6addr '2001:bb8:1234:1100::10'
+	option ip6prefix '2001:bb8:1234:1100::/56'
+	option ip6assign '56'
 
 config interface 'eth1'
 	option ifname 'eth1'
 	option proto 'static'
-	option ip6addr '2001:bb8:1234:1101::2'
-	option ip6prefix 2001:bb8:1234::/48
-	option ip6assign '48'
+	option ip6addr '2001:bb8:1234:1100::11'
+	option ip6prefix '2001:bb8:1234:1100::/56'
+	option ip6assign '56'
 
 config interface 'eth2'
 	option ifname 'eth2'
 	option proto 'static'
-	option ip6addr '2001:bb8:1234:1101::3'
-	option ip6prefix 2001:bb8:1234::/48
-	option ip6assign '48'
+	option ip6addr '2001:bb8:1234:1100::12'
+	option ip6prefix '2001:bb8:1234:1000::/52'
+	option ip6assign '52'
 
 
 config interface 'lan'
