@@ -9,22 +9,13 @@ config interface 'eth0'
 	option proto 'static'
 	option ip6addr '2001:bb8:beef::1'
 	option ip6assign '48'
-	list ip6class 'wan6'
 
 config interface 'lan'
-	option ifname 'eth1 eth2 eth3'
+	option ifname 'eth1 eth2 eth3 eth4'
 	option type 'bridge'
 	option proto 'static'
 	option ipaddr '192.168.1.1'
 	option netmask '255.255.255.0'
 	option ip6assign '64'
-	list ip6class 'wan6'
 
-config interface 'wan'
-	option proto 'dhcp'
-	option ifname 'eth4'
-
-config interface 'wan6'
-	option ifname '@wan'
-	option proto 'dhcpv6'
 
