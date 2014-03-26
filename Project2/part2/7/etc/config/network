@@ -27,7 +27,7 @@ config interface 'eth2'
 
 
 config interface 'eth3'
-	option ifname 'eth2'
+	option ifname 'eth3'
 	option proto 'static'
 	option ip6addr '2001:bb8:1234:1311::4'
 	option ip6prefix 2001:bb8:1234::/48
