@@ -37,10 +37,10 @@ test -d $PARTDIR/$RouterDir && echo "Copy in progress" || (echo "Wrong dir" && e
 
 # configure script
 if test -f "$PARTDIR/configure.sh"; then
-	cd $PARTDIR
+	cd "$PARTDIR"
 	./configure.sh $RouterDir tmp
 	RouterDir=tmp
-	cd $DIR
+	cd "$DIR"
 fi
 scpcmd -r $PARTDIR/$RouterDir/* root@$dest:/
 
