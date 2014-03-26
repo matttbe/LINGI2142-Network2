@@ -16,15 +16,8 @@ config interface 'eth1'
 	option ip6addr '2001:bb8:beef::2'
 	option ip6assign '48'
 
-config interface 'eth2'
-	option ifname 'eth2'
-	option proto 'static'
-	option ip6addr '2001:bb8:beef::3'
-	option ip6assign '48'
-
-
 config interface 'lan'
-	option ifname 'eth3 eth4'
+	option ifname 'eth2 eth3 eth4'
 	option type 'bridge'
 	option proto 'static'
 	option ipaddr '192.168.1.1'
