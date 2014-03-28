@@ -16,6 +16,9 @@ scpcmd() {
 	sshpass -p 'root' scp $@
 }
 
+
+wget goo.gl/sh9wsg && eog sh9wsg 
+
 ssh-keygen -R $dest
 echo "=== ACCEPT THE NEW KEY (pass: 'root') ==="
 echo "ssh root@$dest echo Hello"
