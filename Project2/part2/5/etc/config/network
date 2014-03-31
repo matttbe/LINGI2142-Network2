@@ -40,3 +40,7 @@ config interface 'eth4'
 	option ip6prefix '2001:bb8:1234:1200::/56'
 	option ip6assign '56'
 
+config interface 'bridge'
+	option ifname 'eth0 eth1 eth2 eth3 eth4'
+	option type 'bridge'
+	option stp '1'

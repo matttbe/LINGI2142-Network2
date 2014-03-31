@@ -18,12 +18,15 @@ config interface 'eth1'
 	option ip6prefix '2001:bb8:1234::/48'
 	option ip6assign '48'
 
-config interface 'lan'
-	option ifname 'eth2 eth3 eth4'
+config interface 'bridge'
+	option ifname 'eth0 eth1'
 	option type 'bridge'
+	option stp '1'
+
+config interface 'lan'
+	option ifname 'eth3'
 	option proto 'static'
 	option ipaddr '192.168.1.1'
 	option netmask '255.255.255.0'
 	option ip6assign '64'
-
 
