@@ -36,6 +36,8 @@ config interface 'bridge'
 	option ifname 'eth0 eth1 eth2 eth3'
 	option type 'bridge'
 	option stp '1'
+	option proto 'none'
+	option auto '1'
 
 config interface 'lan'
 	option ifname 'eth4'
