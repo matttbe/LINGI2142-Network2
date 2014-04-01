@@ -9,26 +9,29 @@ config interface 'eth0'
 	option ifname 'eth0'
 	option proto 'static'
 	option ip6addr '2001:bb8:1234:1100::30/56'
-	option ip6prefix 2001:bb8:1234:1100::/56
+	option ip6prefix '2001:bb8:1234:1100::/56'
+	option macaddr 'A4:B1:E9:C3:F2:06'
 
 config interface 'eth1'
 	option ifname 'eth1'
 	option proto 'static'
 	option ip6addr '2001:bb8:1234:1100::31/52'
-	option ip6prefix 2001:bb8:1234:1000::/52
+	option ip6prefix '2001:bb8:1234:1000::/52'
+	option macaddr 'A4:B1:E9:C3:F2:07'
 
 config interface 'eth2'
 	option ifname 'eth2'
 	option proto 'static'
 	option ip6addr '2001:bb8:1234:1100::32/52'
-	option ip6prefix 2001:bb8:1234:1000::/52
-
+	option ip6prefix '2001:bb8:1234:1000::/52'
+	option macaddr 'A4:B1:E9:C3:F2:08'
 
 config interface 'eth3'
 	option ifname 'eth3'
 	option proto 'static'
 	option ip6addr '2001:bb8:1234:1100::33/56'
-	option ip6prefix 2001:bb8:1234:1100::/56
+	option ip6prefix '2001:bb8:1234:1100::/56'
+	option macaddr 'A4:B1:E9:C3:F2:09'
 
 config interface 'eth'
 	option ifname 'eth0 eth1 eth2 eth3'
