@@ -25,13 +25,6 @@ config interface 'eth2'
 	option ip6prefix '2001:bb8:1234:1000::/52'
 	option ip6assign '52'
 
-config interface 'bridge'
-	option ifname 'eth0 eth1 eth2'
-	option type 'bridge'
-	option stp '1'
-	option proto 'none'
-	option auto '1'
-
 config interface 'lan'
 	option ifname 'eth3'
 	option proto 'static'

@@ -33,13 +33,6 @@ config interface 'eth3'
 	option ip6prefix 2001:bb8:1234:1100::/56
 	option ip6assign '56'
 
-config interface 'bridge'
-	option ifname 'eth0 eth1 eth2 eth3'
-	option type 'bridge'
-	option stp '1'
-	option proto 'none'
-	option auto '1'
-
 config interface 'lan'
 	option ifname 'eth4'
 	option proto 'static'
