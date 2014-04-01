@@ -30,6 +30,11 @@ config interface 'eth3'
 	option ip6addr '2001:bb8:1234:1100::33/56'
 	option ip6prefix 2001:bb8:1234:1100::/56
 
+config interface 'eth'
+	option ifname 'eth0 eth1 eth2 eth3'
+	option type 'bridge'
+	option stp '1'
+
 config interface 'lan'
 	option ifname 'eth4'
 	option proto 'static'
