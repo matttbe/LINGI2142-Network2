@@ -26,11 +26,6 @@ config interface 'eth2'
 	option ip6prefix '2001:bb8:1234:1100::/56'
 	option macaddr 'A4:B1:E9:C3:F2:05'
 
-config interface 'eth'
-	option ifname 'eth0 eth1 eth2'
-	option type 'bridge'
-	option stp '1'
-
 config interface 'lan'
 	option ifname 'eth3'
 	option proto 'static'
