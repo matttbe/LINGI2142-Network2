@@ -55,6 +55,7 @@ for R in *; do
 	test ! -d "$R" -o "$R" = "$ROUTER_DIR" -o "$R" = "$DEFAULT" && continue
 	i=0
 	for IP in `grep "option ip6addr '" $R/etc/config/network | cut -d \' -f2 | cut -d/ -f1`; do
+		test "$IP" = "::1/128" && continue # skip loopback
 		echo "$IP r${R}-${i}" >> "$ROUTER_DIR/etc/hosts"
 		i=$(($i+1))
 	done
