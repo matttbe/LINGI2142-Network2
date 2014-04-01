@@ -2,10 +2,16 @@
 #
 # rc.local
 
+ifconfig atm_8_35 down # vc for the internet connexion, SIP, etc.
+ifconfig ptm0 down
+ifconfig wl0 down # wifi
+
 ip6tables -F
 ip6tables -X
 ip6tables -P INPUT ACCEPT
 ip6tables -P FORWARD ACCEPT
 ip6tables -P OUTPUT ACCEPT
+
 /etc/init.d/quagga start
+
 exit 0
