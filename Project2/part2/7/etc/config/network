@@ -3,6 +3,7 @@ config interface 'loopback'
 	option proto 'static'
 	option ipaddr '127.0.0.1'
 	option netmask '255.0.0.0'
+	option ip6addr '::1/128'
 
 config interface 'eth0'
 	option ifname 'eth0'

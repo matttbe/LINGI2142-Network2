@@ -10,6 +10,7 @@ config interface 'eth0'
 	option ip6addr '2001:bb8:1234:1200::40/52'
 	option ip6prefix '2001:bb8:1234:1000::/52'
 	option ip6assign '52'
+	option ip6addr '::1/128'
 
 config interface 'eth1'
 	option ifname 'eth1'
