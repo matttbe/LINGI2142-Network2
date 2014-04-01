@@ -40,3 +40,8 @@ config interface 'eth4'
 	option ip6addr '2001:bb8:1234:1200::44/48'
 	option ip6prefix '2001:bb8:1234::/48'
 	option macaddr 'A4:B1:E9:C3:F2:14'
+
+config interface 'bridge'
+	option ifname 'eth0 eth1 eth2 eth3 eth4'
+	option type 'bridge'
+	option stp '1'

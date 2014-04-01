@@ -33,6 +33,11 @@ config interface 'eth3'
 	option ip6prefix '2001:bb8:1234:1000::/52'
 	option macaddr 'A4:B1:E9:C3:F2:27'
 
+config interface 'bridge'
+	option ifname 'eth0 eth1 eth2 eth3'
+	option type 'bridge'
+	option stp '1'
+
 config interface 'lan'
 	option ifname 'eth4'
 	option proto 'static'
