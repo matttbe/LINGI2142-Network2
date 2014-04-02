@@ -10,7 +10,7 @@ config interface 'eth'
 	option type 'bridge'
 	option stp '1'
 	option proto 'static'
-	option ip6addr '2001:bb8:1234:2700::11/48'
+	option ip6addr '2001:bb8:1234:3700::11/48'
 	option ip6prefix '2001:bb8:1234::/48'
 
 config interface 'lan'
