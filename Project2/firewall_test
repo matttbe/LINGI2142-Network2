@@ -1,0 +1,161 @@
+config defaults
+	option syn_flood '1'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'REJECT'
+	option _key '00552A58BCB457E24D45A9F242CFD21D'
+
+config zone
+	option name 'lan'
+	list network 'lan'
+	option input 'ACCEPT'
+	option output 'ACCEPT'
+	option forward 'REJECT'
+	option wan '0'
+	option _key '8C6C7827B740057F0F06B11C567714B5'
+
+config zone
+	option name 'wan'
+	list network 'wan'
+	list network 'wan6'
+	option input 'DROP'
+	option output 'ACCEPT'
+	option forward 'DROP'
+	option masq '1'
+	option mtu_fix '1'
+	option wan '1'
+	option _key '50449A34CAF55A2E37DB53AD2CDD4F83'
+
+config forwarding
+	option src 'lan'
+	option dest 'wan'
+	option _key '9DEDD61F2770A9DA8C3A84AC43B5933A'
+
+config rule
+	option name 'Allow-DHCP-Renew'
+	option src 'wan'
+	option proto 'udp'
+	option dest_port '68'
+	option target 'ACCEPT'
+	option family 'ipv4'
+	option _key 'E63DBF53B1704C60C21ABC1E3558B2C2'
+
+config rule
+	option name 'Allow-Ping'
+	option src 'wan'
+	option proto 'icmp'
+	option icmp_type 'echo-request'
+	option family 'ipv4'
+	option target 'ACCEPT'
+	option _key '31D54F9CB2539320D2129D6CC4630E03'
+
+config rule
+	option name 'Allow-DHCPv6'
+	option src 'wan'
+	option proto 'udp'
+	option src_ip 'fe80::/10'
+	option src_port '547'
+	option dest_ip 'fe80::/10'
+	option dest_port '546'
+	option family 'ipv6'
+	option target 'ACCEPT'
+	option _key '2D15A966DEA06F2FFDF04876B1FEA9ED'
+
+config rule
+	option name 'Allow-ICMPv6-Input'
+	option src 'wan'
+	option proto 'icmp'
+	list icmp_type 'echo-request'
+	list icmp_type 'echo-reply'
+	list icmp_type 'destination-unreachable'
+	list icmp_type 'packet-too-big'
+	list icmp_type 'time-exceeded'
+	list icmp_type 'bad-header'
+	list icmp_type 'unknown-header-type'
+	list icmp_type 'router-solicitation'
+	list icmp_type 'neighbour-solicitation'
+	list icmp_type 'router-advertisement'
+	list icmp_type 'neighbour-advertisement'
+	option limit '1000/sec'
+	option family 'ipv6'
+	option target 'ACCEPT'
+	option _key 'EFB6AFF733FE9D5897D7E9A49AA3F1B9'
+
+config rule
+	option name 'Allow-ICMPv6-Forward'
+	option src 'wan'
+	option dest '*'
+	option proto 'icmp'
+	list icmp_type 'echo-request'
+	list icmp_type 'echo-reply'
+	list icmp_type 'destination-unreachable'
+	list icmp_type 'packet-too-big'
+	list icmp_type 'time-exceeded'
+	list icmp_type 'bad-header'
+	list icmp_type 'unknown-header-type'
+	option limit '1000/sec'
+	option family 'ipv6'
+	option target 'ACCEPT'
+	option _key '86940CD3A6691BDFCA6189C435213A98'
+
+config rule
+	option name 'Allow_CWMP_Conn_Reqs'
+	option src 'wan'
+	option proto 'tcp'
+	option target 'ACCEPT'
+	option dest_port '51007'
+	option _key '5EBCDF76760CD1E6CC690F7AB649079E'
+
+config include
+	option path '/etc/firewall.user'
+	option _key 'F4DDE12452988ECB06F77434C7C7B2A6'
+
+config include 'fullcone'
+	option type 'script'
+	option path '/lib/functions/fullcone.sh'
+	option family 'IPv4'
+	option _key '43027C4CF47C517BC55DD564158A4B51'
+
+config cone
+	option name 'XBox Live'
+	option src 'wan'
+	option dest_port '3074'
+
+config include 'dmzscript'
+	option type 'script'
+	option path '/lib/functions/dmz.sh'
+	option family 'IPv4'
+	option reload '1'
+	option _key 'C67F64BDDA4724117EC2179B49D76593'
+
+config dmz 'dmz'
+	option enable '0'
+
+config include 'todscript'
+	option type 'script'
+	option path '/lib/functions/tod.sh'
+	option reload '1'
+	option _key '7182E533CCD6494BF75727C9732669F3'
+
+config include 'miniupnpd'
+	option type 'script'
+	option path '/usr/share/miniupnpd/firewall.include'
+	option family 'IPv4'
+	option reload '1'
+	option _key '44660EEAAD8AA027503651BE5E4A5159'
+
+config rule 
+	option name 'from Voice'
+	option src_ip '2001:bb8:1234:3::/52'
+	option target	'DENY'
+	option proto	'tcpudp'
+	option dest	'*'
+
+config rule 
+	option name 'to Voice'
+	option src_ip '2001:bb8:1234:3::/52'
+	option target	'ACCEPT'
+	option proto	'udp'
+	option dest	'2001:bb8:1234:3::/52'
+
+
