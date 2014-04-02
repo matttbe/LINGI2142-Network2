@@ -12,6 +12,10 @@ ip6tables -P INPUT ACCEPT
 ip6tables -P FORWARD ACCEPT
 ip6tables -P OUTPUT ACCEPT
 
+# only for the core: R1, R2, R3: block ping from other routers that are not on type '1'
+grep "2001:bb8:1234:1100::" /etc/config/network && ip6tables -A INPUT -s 2001:bb8:1234:1000::/52 -p ipv6-icmp -j ACCEPT
+grep "2001:bb8:1234:1100::" /etc/config/network && ip6tables -A INPUT -p ipv6-icmp -j REJECT
+
 /etc/init.d/quagga start
 
 exit 0
